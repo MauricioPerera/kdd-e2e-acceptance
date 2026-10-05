@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "kdd-e2e-acceptance-1",
+  "projectId": "dev.kdd.e2e.acceptance",
+  "contract": "knowledge/contracts/todo-ui.md",
+  "testFiles": ["tests/todos.e2e.ts"],
+  "timeoutMs": 24000,
+  "expectedCases": [
+    {"file":"tests/todos.e2e.ts","targetId":"web","titlePath":["todos","adds todos with the button and the keyboard"]},
+    {"file":"tests/todos.e2e.ts","targetId":"web","titlePath":["todos","ignores empty submissions"]},
+    {"file":"tests/todos.e2e.ts","targetId":"web","titlePath":["todos","completes and filters todos"]},
+    {"file":"tests/todos.e2e.ts","targetId":"web","titlePath":["todos","reads and checks every todo at once"]},
+    {"file":"tests/todos.e2e.ts","targetId":"web","titlePath":["todos","deletes todos"]},
+    {"file":"tests/todos.e2e.ts","targetId":"web","titlePath":["todos","persists across restart and clears with clearState"]},
+    {"file":"tests/todos.e2e.ts","targetId":"web","titlePath":["todos","attempts start from a logically fresh session"]}
+  ],
+  "inputFiles": [
+    "acceptance.json", "e2e.config.ts", "package.json", "package-lock.json",
+    "schema/report-v1.schema.json", "src/report-validator.mjs", "src/oracle.mjs", "src/subprocess.mjs",
+    "tests/ui-oracle.test.mjs", "tests/todos.e2e.ts", "knowledge/contracts/todo-ui.md",
+    "example/todo-model.mjs", "example/client.mjs", "example/index.html", "example/server.mjs"
+  ]
+}
