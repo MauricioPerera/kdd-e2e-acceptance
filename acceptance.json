@@ -15,7 +15,7 @@
   ],
   "inputFiles": [
     "acceptance.json", "e2e.config.ts", "package.json", "package-lock.json",
-    "schema/report-v1.schema.json", "src/report-validator.mjs", "src/oracle.mjs", "src/subprocess.mjs",
+    "schema/report-v1.schema.json", "src/report-validator.mjs", "src/oracle.mjs", "src/subprocess.mjs", "src/git.mjs",
     "tests/ui-oracle.test.mjs", "tests/todos.e2e.ts", "knowledge/contracts/todo-ui.md",
     "example/todo-model.mjs", "example/client.mjs", "example/index.html", "example/server.mjs"
   ]
