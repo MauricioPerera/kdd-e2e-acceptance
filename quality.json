@@ -3,6 +3,7 @@
     ".gitattributes",
     ".github/workflows/acceptance.yml",
     ".gitignore",
+    "AGENTS.md",
     "acceptance.json",
     "e2e.config.ts",
     "knowledge/architecture.md",
@@ -49,7 +50,10 @@
     "README.md",
     "docs/REVIEW.md",
     "docs/VALIDATION.md",
-    "specs/CONTRACT-01-acceptance.md"
+    "specs/CONTRACT-01-acceptance.md",
+    "docs/reports/CONTRACT-01-REPORT.md",
+    "docs/reports/CONTRACT-01-EVIDENCE.json",
+    "CHANGELOG.md"
   ],
   "required_kinds": [
     "functional",

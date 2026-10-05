@@ -63,8 +63,10 @@ con todos sus checks dos veces. No elige una referencia automáticamente.
 Para CI, publicar este proyecto en el repositorio elegido por el usuario y
 configurar la variable de repositorio con el SHA aprobado. El workflow fija
 tooling, versiones y acciones, instala Chromium, verifica la política, ejecuta
-los comandos KDD y prueba el ejecutor de Board. Guarda artefactos incluso si
-hay un fallo. No se configura una referencia ni se publica desde este proyecto.
+los comandos KDD y prueba el ejecutor de Board. Los manifiestos nuevos de cierre
+se autentican contra un run previo mediante los validadores KDD y la API de
+GitHub. Guarda artefactos incluso si hay un fallo. No se configura una referencia
+ni se publica desde este proyecto.
 
 ## Adaptar a otra aplicación
 

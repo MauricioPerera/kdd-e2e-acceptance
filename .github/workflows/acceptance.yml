@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 jobs:
   acceptance:
     strategy:
@@ -61,6 +62,18 @@ jobs:
         run: npm run validate:kdd
       - name: Verify Board compatibility
         run: npm run probe:board
+      - name: Authenticate any new KDD closure against the prior CI run
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python .kdd-runtime/KDD/scripts/verify_completion_runs.py \
+            --repository "$GITHUB_REPOSITORY" \
+            --current-run-id "$GITHUB_RUN_ID" \
+            --candidate-sha "$GITHUB_SHA" \
+            --base-sha "$KDD_QUALITY_APPROVED_REF" \
+            --workflow-path .github/workflows/acceptance.yml \
+            --workflow-name 'KDD e2e acceptance'
       - name: Preserve reports, logs and traces
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
