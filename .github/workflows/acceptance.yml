@@ -58,6 +58,8 @@ jobs:
       - name: Run quality policy from independently approved Git commit
         shell: bash
         run: python .kdd-runtime/KDD/scripts/verify_quality.py --policy quality.json --approved-ref "$KDD_QUALITY_APPROVED_REF"
+      - name: Run reviewed project quality entry point
+        run: npm run verify:quality
       - name: Run KDD Level 1 and declared commands
         run: npm run validate:kdd
       - name: Verify Board compatibility
