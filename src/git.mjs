@@ -11,6 +11,11 @@ export function git(root, args) {
 }
 export function gitEnvironment() {
   const env = { ...process.env };
-  if (process.platform === 'win32') env.PATH = `${path.dirname(gitExecutable())};${env.PATH ?? ''}`;
+  if (process.platform === 'win32') {
+    const pathKeys = Object.keys(env).filter(key => key.toLowerCase() === 'path');
+    const originalPath = env[pathKeys[0]] ?? '';
+    for (const key of pathKeys) delete env[key];
+    env.PATH = `${path.dirname(gitExecutable())};${originalPath}`;
+  }
   return env;
 }

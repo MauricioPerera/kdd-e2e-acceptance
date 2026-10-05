@@ -7,7 +7,7 @@
   "engines": { "node": ">=24.8.0" },
   "packageManager": "npm@11.13.0",
   "scripts": {
-    "test:functional": "node --test tests/report.functional.test.mjs tests/domain.test.mjs tests/subprocess.test.mjs tests/approval.test.mjs",
+    "test:functional": "node --test tests/report.functional.test.mjs tests/domain.test.mjs tests/subprocess.test.mjs tests/approval.test.mjs tests/environment.test.mjs",
     "test:adversarial": "node --test tests/report.adversarial.test.mjs tests/mutations.test.mjs",
     "test:ui": "node --test tests/ui-oracle.test.mjs",
     "setup:kdd": "node scripts/setup-kdd.mjs",

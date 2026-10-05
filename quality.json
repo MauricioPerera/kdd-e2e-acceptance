@@ -27,6 +27,7 @@
     "src/subprocess.mjs",
     "tests/approval.test.mjs",
     "tests/domain.test.mjs",
+    "tests/environment.test.mjs",
     "tests/fixtures/passed.report.json",
     "tests/mutations.test.mjs",
     "tests/report.adversarial.test.mjs",
@@ -75,7 +76,8 @@
         "tests/report.functional.test.mjs",
         "tests/domain.test.mjs",
         "tests/subprocess.test.mjs",
-        "tests/approval.test.mjs"
+        "tests/approval.test.mjs",
+        "tests/environment.test.mjs"
       ],
       "timeout": 60
     },
