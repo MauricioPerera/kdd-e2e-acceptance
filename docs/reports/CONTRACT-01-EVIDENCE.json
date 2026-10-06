@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "spec": "specs/CONTRACT-01-acceptance.md",
+  "state": "verified_in_ci",
+  "ci": {
+    "run_url": "https://github.com/MauricioPerera/kdd-e2e-acceptance/actions/runs/37367733608",
+    "head_sha": "882d32039e754d63329265e5822fa042d72d9a7f",
+    "run_attempt": 2
+  },
+  "approved_baseline": "882d32039e754d63329265e5822fa042d72d9a7f",
+  "human_approval": {
+    "source": "Explicit user response approving the displayed reference that requests Ubuntu 24.04 in this conversation",
+    "response": "Sí, la apruebo"
+  },
+  "criteria": {
+    "AC-1": {
+      "status": "verified_in_ci",
+      "evidence": "npm run validate:kdd: 3 contratos y comandos PASS; https://github.com/MauricioPerera/kdd-e2e-acceptance/actions/runs/37367733608"
+    },
+    "AC-2": {
+      "status": "verified_in_ci",
+      "evidence": "Check functional: 12 PASS por ejecución; https://github.com/MauricioPerera/kdd-e2e-acceptance/actions/runs/37367733608"
+    },
+    "AC-3": {
+      "status": "verified_in_ci",
+      "evidence": "Check adversarial: 37 PASS y 5 mutaciones detectadas; https://github.com/MauricioPerera/kdd-e2e-acceptance/actions/runs/37367733608"
+    },
+    "AC-4": {
+      "status": "verified_in_ci",
+      "evidence": "Check ui: 7 casos deterministas PASS por run; https://github.com/MauricioPerera/kdd-e2e-acceptance/actions/runs/37367733608"
+    },
+    "AC-5": {
+      "status": "verified_in_ci",
+      "evidence": "npm run probe:board: oráculo verificado y hashes vigentes; https://github.com/MauricioPerera/kdd-e2e-acceptance/actions/runs/37367733608"
+    },
+    "CI-1": {
+      "status": "verified_in_ci",
+      "evidence": "https://github.com/MauricioPerera/kdd-e2e-acceptance/actions/runs/37367733608"
+    }
+  },
+  "artifacts": [
+    {
+      "platform": "windows-latest",
+      "id": 11386585105,
+      "name": "acceptance-windows-latest-882d32039e754d63329265e5822fa042d72d9a7f",
+      "digest": "sha256:2fb36b18d60b0d8e95c21da9c562191e27e82b3d4636a33b9c8c9a522d9f5dcd",
+      "acceptance_runs": 6,
+      "cases_per_run": 7,
+      "board_verified": true,
+      "checked_reports": [
+        {
+          "directory": "581dea3c-33d7-41a2-afa7-76e0532348f5",
+          "run_id": "01a10efb-a1f2-78f8-b24d-fd88ccd8fa4c",
+          "report_sha256": "e7ad1f77dc383d2d9af7c13e34d3e76ee0f61e3546843f8d25e043af897411c9",
+          "ui_tests": 7
+        },
+        {
+          "directory": "7191212a-e202-4479-ab04-35eec422ed9b",
+          "run_id": "01a10efb-3e65-7bb6-ac72-b7d356121e00",
+          "report_sha256": "73fb4cd0eb38700801a591689864a9311306ff46ccf7af9050017483ca7d1935",
+          "ui_tests": 7
+        },
+        {
+          "directory": "8d88a23e-ec87-4121-a58f-96dd571a5e2a",
+          "run_id": "01a10efa-fa74-7234-bdde-a365ee6a4e49",
+          "report_sha256": "fa25ceb28a6c43573d2d15afb54ffc026afc03e9ee460878c1883856ecc90027",
+          "ui_tests": 7
+        },
+        {
+          "directory": "ab372eda-e192-4a3b-bd67-7bd7dda6a886",
+          "run_id": "01a10efb-c044-7415-914d-fa9ab02c43f1",
+          "report_sha256": "85d503b509d429db3ef890e733a4dfc476e62631b49426b65fff75cbc1e4ea99",
+          "ui_tests": 7
+        },
+        {
+          "directory": "ac58f98d-df29-47fe-bba9-009c9d050ca8",
+          "run_id": "01a10efa-c8f5-7707-a00a-a53752962332",
+          "report_sha256": "286ae48e0dea2427b8cbbe98b593f32d493ee7756eed4a0bceba5772eae8ca05",
+          "ui_tests": 7
+        },
+        {
+          "directory": "b49dcb03-6f03-4b7d-8eae-d1df8b48a18f",
+          "run_id": "01a10efb-73e3-7ebe-882f-d9177ca72e10",
+          "report_sha256": "e32fee4205845da08e44c04240fe2c40d12fc98079bac402e6d42541acf4d144",
+          "ui_tests": 7
+        }
+      ]
+    },
+    {
+      "platform": "ubuntu-24.04",
+      "id": 11386171274,
+      "name": "acceptance-ubuntu-24.04-882d32039e754d63329265e5822fa042d72d9a7f",
+      "digest": "sha256:d4d1a070e049ad133f2563a60ab62383b96055e3a0024ab9578de595b9ea1f95",
+      "acceptance_runs": 6,
+      "cases_per_run": 7,
+      "board_verified": true,
+      "checked_reports": [
+        {
+          "directory": "2784459f-752c-462d-850b-d74fe28ec74c",
+          "run_id": "01a10efa-a9b3-79f6-89ce-f26b7c09116e",
+          "report_sha256": "5e0dcf0afc4f0c0fdc79df0fe27bf3a320fc353c6069e6b63f067c9da665bca2",
+          "ui_tests": 7
+        },
+        {
+          "directory": "79d28123-944f-4fb0-9497-3ae2e51b0dda",
+          "run_id": "01a10efa-8b17-7b86-af81-7caa8d8012aa",
+          "report_sha256": "71ec5f612f36f6087512c25b1fb7ff69cd2db40c5dc74e6eb7060ae5f2e19c4c",
+          "ui_tests": 7
+        },
+        {
+          "directory": "bfda4619-eba6-449a-b200-7ab82ceb0795",
+          "run_id": "01a10efa-44b2-75ea-9cfd-f622d3a9d001",
+          "report_sha256": "e8ca58b5a7ed5147de7b9d2796f8f011228e8287111c2f9e64c45bcead2c36d3",
+          "ui_tests": 7
+        },
+        {
+          "directory": "d3647a1f-0e31-4133-9d87-c4be9c204f8d",
+          "run_id": "01a10efa-68b6-75f0-8e38-dc1e1a4c194d",
+          "report_sha256": "00583477729e4a4de7b4bb4cef4e28c5c303443fec2350dd3ca6c32908e088eb",
+          "ui_tests": 7
+        },
+        {
+          "directory": "df78395d-9d3a-4bfe-bb28-ea00a436b959",
+          "run_id": "01a10efa-1f82-7d4c-995a-93eeba80cfcd",
+          "report_sha256": "29bc071ef19f7f0536b88ca251b398880b2f23c03371cb2969b67063e5d50501",
+          "ui_tests": 7
+        },
+        {
+          "directory": "ee7dcaf6-8bde-4a47-83fe-15ae29cb0e0b",
+          "run_id": "01a10efa-c6ce-7824-814b-474c72cfafb8",
+          "report_sha256": "8f463ecfff414f3e1e68adccbb391d2bb8380d7bcc77610052051d0828bc793a",
+          "ui_tests": 7
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "The profile covers seven deterministic web cases and assumes a trusted runner and installed dependencies.",
+    "GitHub rejected rulesets and branch protection for this private repository with the current plan; those remote protections are not enabled."
+  ],
+  "artifact_audit": {
+    "checked_at": "2026-10-06T02:15:57.180Z",
+    "reports": 12,
+    "input_files": 16,
+    "report_hashes_verified": true,
+    "input_hashes_match_cited_commit": true,
+    "board_hashes_match_cited_commit": true
+  }
+}
