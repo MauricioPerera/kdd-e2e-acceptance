@@ -71,6 +71,7 @@ const alterations = {
   },
   cancelledModelEvent: r => { firstStep(r).events.push({ ...modelEvent(r), status: 'cancelled' }); },
   tokensInNonModelEvent: r => { firstStep(r).events[0].inputTokens = 1; },
+  outputTokensInNonModelEvent: r => { firstStep(r).events[0].outputTokens = 1; },
   stepModelCalls: r => { firstStep(r).metrics.modelCalls = 1; },
   failedStep: r => { firstStep(r).status = 'failed'; },
 };
