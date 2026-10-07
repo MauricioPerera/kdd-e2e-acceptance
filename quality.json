@@ -55,6 +55,8 @@
     "specs/CONTRACT-02-acceptance-hardening.md",
     "docs/reports/CONTRACT-01-REPORT.md",
     "docs/reports/CONTRACT-01-EVIDENCE.json",
+    "docs/reports/CONTRACT-02-REPORT.md",
+    "docs/reports/CONTRACT-02-EVIDENCE.json",
     "CHANGELOG.md"
   ],
   "required_kinds": [

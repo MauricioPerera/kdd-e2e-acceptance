@@ -14,6 +14,8 @@
 Tocar SOLO the candidate files reviewed for this hardening: the report validator,
 its adversarial tests and fixture helper, the fixture server and its regression
 test, package.json, quality.json, the report-validation contract and this spec.
+After successful CI, the closure may change this spec and its exact
+docs/reports/CONTRACT-02-REPORT.md and CONTRACT-02-EVIDENCE.json paths.
 - ABORTAR SI a baseline is presented as approved without an explicit human review,
   or test execution produces inconclusive evidence.
 
