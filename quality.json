@@ -33,6 +33,7 @@
     "tests/mutations.test.mjs",
     "tests/report.adversarial.test.mjs",
     "tests/report.functional.test.mjs",
+    "tests/server.test.mjs",
     "tests/subprocess.test.mjs",
     "tests/support/domain-oracle.mjs",
     "tests/support/fixtures.mjs",
@@ -51,6 +52,7 @@
     "docs/REVIEW.md",
     "docs/VALIDATION.md",
     "specs/CONTRACT-01-acceptance.md",
+    "specs/CONTRACT-02-acceptance-hardening.md",
     "docs/reports/CONTRACT-01-REPORT.md",
     "docs/reports/CONTRACT-01-EVIDENCE.json",
     "CHANGELOG.md"
@@ -81,7 +83,8 @@
         "tests/domain.test.mjs",
         "tests/subprocess.test.mjs",
         "tests/approval.test.mjs",
-        "tests/environment.test.mjs"
+        "tests/environment.test.mjs",
+        "tests/server.test.mjs"
       ],
       "timeout": 60
     },

@@ -7,7 +7,7 @@ task: report-validation
 intent: 'Verify the declared acceptance behavior.'
 target: src/report-validator.mjs
 signature: 'validateReport(report, expected) -> run evidence'
-test_command: 'node --test tests/report.functional.test.mjs'
+test_command: 'node --test tests/report.functional.test.mjs tests/report.adversarial.test.mjs'
 budget:
   cyclomatic_max: 8
   nesting_max: 3
@@ -29,6 +29,9 @@ validateReport(report, expected) -> run evidence
 ## Invariants
 - Observed results must satisfy the reviewed acceptance criteria.
 - Tests and their imported helpers must remain protected by the quality policy.
+- Unselected results must be filtered skips without attempts or serial execution.
+- Every step must be deterministic: model events and nonzero event token counts
+  are rejected even when run-level usage reports zero.
 
 ## Examples
 - Correct behavior passes the declared command.
@@ -41,6 +44,8 @@ validateReport(report, expected) -> run evidence
 ## Tests
 The declared oracle was written before implementation. Complementary adversarial
 checks and dependency protection are part of the project quality policy.
+The hardening regressions are proposed for a separately reviewed baseline; their
+local results and test hashes do not grant approval.
 
 ## Constraints
 PARAR y reportar si implementation requires changing the protected oracle.
