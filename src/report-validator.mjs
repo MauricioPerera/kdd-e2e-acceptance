@@ -10,6 +10,12 @@ const identity = item => JSON.stringify([item.file, item.targetId, item.titlePat
 function requireEvidence(condition, message) {
   if (!condition) throw Object.assign(new Error(message), { code: 'E2E_EVIDENCE_INVALID' });
 }
+function isDeterministicStep(step) {
+  return step.status === 'passed' && !step.error &&
+    (step.metrics?.modelCalls ?? 0) === 0 && (step.model?.calls ?? 0) === 0 &&
+    step.events.every(event => event.kind !== 'model' &&
+      (event.inputTokens ?? 0) === 0 && (event.outputTokens ?? 0) === 0);
+}
 
 export function validateReport(report, expected) {
   requireEvidence(conforms(report), `Invalid report-1: ${ajv.errorsText(conforms.errors)}`);
@@ -29,6 +35,9 @@ export function validateReport(report, expected) {
   requireEvidence(Number.isFinite(start) && Number.isFinite(finish) && start >= startedAt && finish >= start && finish <= finishedAt, 'Report is stale, unfinished or from the future');
   requireEvidence(run.serialGroups.length === 0 && !run.carried && !run.explore, 'Unsupported serial, carried or exploratory report');
   requireEvidence(run.results.every(item => typeof item.selected === 'boolean' && item.kind === 'test'), 'Unclassified result or unsupported setup');
+  requireEvidence(run.results.filter(item => !item.selected).every(item =>
+    item.status === 'skipped' && item.skip?.cause === 'filtered' &&
+    item.attempts.length === 0 && !item.serialGroupId), 'Unselected cases must be filtered without execution');
   const selected = run.results.filter(item => item.selected);
   requireEvidence(JSON.stringify(selected.map(identity).sort()) === JSON.stringify(expectedKeys), 'Selected cases differ from the reviewed set');
   requireEvidence(new Set(run.results.map(item => item.id)).size === run.results.length, 'Duplicate result identity');
@@ -39,8 +48,7 @@ export function validateReport(report, expected) {
     requireEvidence(attempt.index === 0 && attempt.status === 'passed' && attempt.cleanup === 'complete' && attempt.secondaryErrors.length === 0 && !attempt.error, 'Failed attempt or cleanup');
     const attemptStart = Date.parse(attempt.startedAt);
     requireEvidence(attemptStart >= start && attemptStart + attempt.durationMs <= finish + 2, 'Attempt is outside the current run');
-    requireEvidence(attempt.steps.every(step => step.status === 'passed' && !step.error &&
-      (step.metrics?.modelCalls ?? 0) === 0 && (step.model?.calls ?? 0) === 0), 'Failed step or model use');
+    requireEvidence(attempt.steps.every(isDeterministicStep), 'Failed step or model use');
   }
   const summary = run.summary;
   requireEvidence(summary.selected === cases.length && summary.executed === cases.length && summary.passed === cases.length &&

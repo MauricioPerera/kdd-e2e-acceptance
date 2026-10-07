@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "spec": "specs/CONTRACT-02-acceptance-hardening.md",
+  "state": "verified_in_ci",
+  "ci": {
+    "run_url": "https://github.com/MauricioPerera/kdd-e2e-acceptance/actions/runs/37672478622",
+    "head_sha": "95be705c94b143854bdfae6ba3ab9622e86a0dbc",
+    "run_attempt": 1
+  },
+  "approved_baseline": "95be705c94b143854bdfae6ba3ab9622e86a0dbc",
+  "human_approval": {
+    "source": "Explicit user reply to the review request naming the full SHA 95be705c94b143854bdfae6ba3ab9622e86a0dbc in this conversation",
+    "response": "Adelante"
+  },
+  "criteria": {
+    "AC-1": {
+      "status": "verified_in_ci",
+      "evidence": "Check adversarial: resultados no seleccionados y skips ajenos al filtro rechazados; 49 PASS y 5 mutaciones detectadas; https://github.com/MauricioPerera/kdd-e2e-acceptance/actions/runs/37672478622"
+    },
+    "AC-2": {
+      "status": "verified_in_ci",
+      "evidence": "Check adversarial: eventos de modelo y tokens positivos rechazados aunque el resumen declare cero; https://github.com/MauricioPerera/kdd-e2e-acceptance/actions/runs/37672478622"
+    },
+    "AC-3": {
+      "status": "verified_in_ci",
+      "evidence": "Check functional: 13 PASS; tres URLs malformadas responden 400 y cada petición válida posterior responde 200; https://github.com/MauricioPerera/kdd-e2e-acceptance/actions/runs/37672478622"
+    },
+    "AC-4": {
+      "status": "verified_in_ci",
+      "evidence": "Doce reportes auditados, seis por plataforma, con siete casos deterministas de Chromium PASS por ejecución; https://github.com/MauricioPerera/kdd-e2e-acceptance/actions/runs/37672478622"
+    },
+    "AC-5": {
+      "status": "verified_in_ci",
+      "evidence": "npm run validate:kdd: 3 contratos y comandos PASS; npm run probe:board: oráculo y hashes verificados; https://github.com/MauricioPerera/kdd-e2e-acceptance/actions/runs/37672478622"
+    },
+    "CI-1": {
+      "status": "verified_in_ci",
+      "evidence": "https://github.com/MauricioPerera/kdd-e2e-acceptance/actions/runs/37672478622"
+    }
+  },
+  "artifacts": [
+    {
+      "platform": "ubuntu-24.04",
+      "id": 11505443964,
+      "name": "acceptance-ubuntu-24.04-95be705c94b143854bdfae6ba3ab9622e86a0dbc",
+      "digest": "sha256:0583af0db20347585a4ceb3b8cd5549ae4194efa018733faa9b74d774a224a39",
+      "digest_source": "GitHub Actions API; archive digest was not independently recomputed",
+      "acceptance_runs": 6,
+      "cases_per_run": 7,
+      "board_verified": true,
+      "checked_reports": [
+        {
+          "directory": "4b726dae-39c6-44f4-9d99-85effdd545d4",
+          "run_id": "01a117c9-9ed1-7314-8659-9e30ec9be02f",
+          "report_sha256": "3d2c5bead1aa3e71592da20a57e5f9104a5b63c2b58af005d38272d19e0cbb56",
+          "ui_tests": 7
+        },
+        {
+          "directory": "52d7892e-4d88-4801-b49a-a86ab7c103d4",
+          "run_id": "01a117c9-50bc-7bc5-888c-8f513befd2f3",
+          "report_sha256": "2efe095b01e3cc302e46408dac0b2bb81032c7a8bac75aa95e993fcc8173fc9b",
+          "ui_tests": 7
+        },
+        {
+          "directory": "a02b2e1f-9919-4558-b5df-3100c88aff94",
+          "run_id": "01a117c9-7a45-7692-a19e-a806aca9c74b",
+          "report_sha256": "62adef3eaf6268d80a60931d56d0f19bbc32b0362a2166d14f91ecb7e2f7095e",
+          "ui_tests": 7
+        },
+        {
+          "directory": "af01b884-8d25-4202-b722-e11109ac15d2",
+          "run_id": "01a117c9-3b60-71f7-9722-85d1ef1bd1d1",
+          "report_sha256": "8a0179ce20b3f3676978e16687c4a8a75442c7b33c3c27281d8f9fcbc9c582a1",
+          "ui_tests": 7
+        },
+        {
+          "directory": "ea99603f-d255-4a06-802b-ee380624b859",
+          "run_id": "01a117c9-8dd1-7519-95e9-fc92b59698ab",
+          "report_sha256": "3fce563a31f3782aed071d4a131a8afeeeec10182581789f4a60737f86d00dde",
+          "ui_tests": 7
+        },
+        {
+          "directory": "f348c264-abf5-4d72-a7d3-0d858ded9f52",
+          "run_id": "01a117c9-660a-7216-b292-2f1415f6e50c",
+          "report_sha256": "89c880a41c1857068ddd0e00ecacd286121bd046908322bbdb682f3d02e997ab",
+          "ui_tests": 7
+        }
+      ]
+    },
+    {
+      "platform": "windows-latest",
+      "id": 11504874032,
+      "name": "acceptance-windows-latest-95be705c94b143854bdfae6ba3ab9622e86a0dbc",
+      "digest": "sha256:3e560624ad88e50209fb6005a071fa28a6b520d4761dbea72e92cb93cf8d5521",
+      "digest_source": "GitHub Actions API; archive digest was not independently recomputed",
+      "acceptance_runs": 6,
+      "cases_per_run": 7,
+      "board_verified": true,
+      "checked_reports": [
+        {
+          "directory": "29a681c2-ecf6-473f-8ecf-df2d0b1a6736",
+          "run_id": "01a117c7-5b46-77bc-939d-ab620d430a73",
+          "report_sha256": "42565ccedbf3a6fa95a8c8aed710c8408c4353aa8c0a116327ef7420cf22c74c",
+          "ui_tests": 7
+        },
+        {
+          "directory": "7b91742d-8885-4783-97e6-ab6780a24c97",
+          "run_id": "01a117c7-b3f3-7f1a-a182-f80a145c500b",
+          "report_sha256": "1ac894a1b5b06d0719e1f13d955de698d0fe624fdbd004e2e7f7412dab86a564",
+          "ui_tests": 7
+        },
+        {
+          "directory": "81c594d5-423b-47ee-b86c-f7b3b1340974",
+          "run_id": "01a117c7-e6bf-755a-9f49-519b22de545f",
+          "report_sha256": "e283364aa75871ea200408873c3eead7a2c94e064a60f9121e86024532231782",
+          "ui_tests": 7
+        },
+        {
+          "directory": "e9224c09-a48c-4c62-9848-da6a26db9341",
+          "run_id": "01a117c7-d04a-7aac-b720-03f31591c0cf",
+          "report_sha256": "3e0e1eac85d4ebf42aaa80e3aa53931205ef8ac337aeb1005aebabea219e5232",
+          "ui_tests": 7
+        },
+        {
+          "directory": "fb17b06a-c7fd-408a-8aee-9c0187c3831f",
+          "run_id": "01a117c7-8a6b-7b58-b081-4359e6221d17",
+          "report_sha256": "141f8cf73355cce8b0af7672e75dc75b77d02797e69c125f6887c99774ef6ac2",
+          "ui_tests": 7
+        },
+        {
+          "directory": "fed5e2a6-031b-42b3-a222-85a9351b1223",
+          "run_id": "01a117c7-37db-7d13-bf72-3b50d6a80e30",
+          "report_sha256": "114ee3538fc2adac951238d200ce6cb749c72a81f22897c93c086ad487a2c965",
+          "ui_tests": 7
+        }
+      ]
+    }
+  ],
+  "artifact_audit": {
+    "checked_at": "2026-10-07T19:25:22.061Z",
+    "reports": 12,
+    "input_files": 16,
+    "report_hashes_verified": true,
+    "input_hashes_match_cited_commit": true,
+    "board_hashes_match_cited_commit": true,
+    "authenticated_run_and_jobs": true
+  },
+  "limits": [
+    "The deterministic profile covers seven web cases and assumes trusted runners and installed dependencies.",
+    "Artifact digests are declared by the authenticated GitHub Actions API; downloaded report and input hashes were independently recomputed.",
+    "Actions artifacts are subject to retention. CONTRACT-01 records its historical run and does not certify this revision."
+  ]
+}

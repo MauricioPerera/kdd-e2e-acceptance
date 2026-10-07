@@ -3,6 +3,22 @@ import assert from 'node:assert/strict';
 import { validateReport } from '../src/report-validator.mjs';
 import { fixture } from './support/fixtures.mjs';
 
+function addUnselected(report, alter) {
+  const item = structuredClone(report.run.results[0]);
+  item.id = 'd'.repeat(64);
+  item.testId = 'tests/other.e2e.ts::unselected';
+  item.file = 'tests/other.e2e.ts';
+  item.titlePath = ['unselected'];
+  item.selected = false;
+  alter(item);
+  report.run.results.push(item);
+  report.run.summary.discovered += 1;
+  report.run.usage.discoveredResults += 1;
+}
+const firstStep = report => report.run.results[0].attempts[0].steps[0];
+const modelEvent = report => ({ kind: 'model', startedAt: report.run.startedAt,
+  durationMs: 0, status: 'passed', count: 1, inputTokens: 100, outputTokens: 10 });
+
 const alterations = {
   oldReport: r => { r.run.startedAt = '2000-01-01T00:00:00.000Z'; },
   futureReport: r => { r.run.finishedAt = '2099-01-01T00:00:00.000Z'; },
@@ -34,6 +50,30 @@ const alterations = {
   missingVcs: r => { delete r.run.vcs; },
   setupInsteadOfTest: r => { r.run.results[0].kind = 'setup'; },
   pastAttempt: r => { r.run.results[0].attempts[0].startedAt = '2000-01-01T00:00:00.000Z'; },
+  unselectedPassed: r => addUnselected(r, () => {}),
+  unselectedFailed: r => addUnselected(r, item => {
+    item.status = 'failed'; item.attempts[0].status = 'failed'; item.attempts[0].cleanup = 'forced';
+  }),
+  unselectedSkippedWithAttempt: r => addUnselected(r, item => {
+    item.status = 'skipped'; item.skip = { cause: 'filtered', reason: 'filtered' };
+  }),
+  unselectedExplicitSkip: r => addUnselected(r, item => {
+    item.status = 'skipped'; item.skip = { cause: 'explicit', reason: 'explicit skip' }; item.attempts = [];
+  }),
+  unselectedSerialCase: r => addUnselected(r, item => {
+    item.status = 'skipped'; item.skip = { cause: 'filtered', reason: 'filtered' };
+    item.attempts = []; item.serialGroupId = 'unsupported-group';
+  }),
+  modelEventWithZeroUsage: r => { firstStep(r).events.push(modelEvent(r)); },
+  modelEventWithoutTokens: r => {
+    const event = modelEvent(r); delete event.inputTokens; delete event.outputTokens;
+    firstStep(r).events.push(event);
+  },
+  cancelledModelEvent: r => { firstStep(r).events.push({ ...modelEvent(r), status: 'cancelled' }); },
+  tokensInNonModelEvent: r => { firstStep(r).events[0].inputTokens = 1; },
+  outputTokensInNonModelEvent: r => { firstStep(r).events[0].outputTokens = 1; },
+  stepModelCalls: r => { firstStep(r).metrics.modelCalls = 1; },
+  failedStep: r => { firstStep(r).status = 'failed'; },
 };
 for (const [name, alter] of Object.entries(alterations)) {
   test(`rejects ${name}`, () => {
